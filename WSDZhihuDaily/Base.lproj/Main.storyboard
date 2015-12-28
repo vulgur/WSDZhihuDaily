@@ -62,6 +62,7 @@
                     <navigationItem key="navigationItem" id="LFB-HZ-edN"/>
                     <connections>
                         <outlet property="carouselView" destination="bpZ-6X-lcu" id="sXD-Zl-VZH"/>
+                        <outlet property="carouselViewHeight" destination="mEa-rQ-A6j" id="LHv-t4-8bJ"/>
                         <outlet property="carouselViewTop" destination="hh1-xU-UhL" id="OCP-HI-8tr"/>
                         <outlet property="refreshView" destination="NZa-vH-Qdx" id="j4P-Hg-Ue5"/>
                         <outlet property="tableView" destination="JCa-zS-Qhe" id="F6T-PR-t18"/>

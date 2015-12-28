@@ -18,6 +18,7 @@ UIScrollViewDelegate>
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 @property(weak, nonatomic) IBOutlet WSDRefreshView *refreshView;
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *carouselViewTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *carouselViewHeight;
 
 @property(nonatomic, strong) NSMutableArray *stories;
 @property(nonatomic, strong) UIView *topView;
@@ -117,7 +118,11 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
             CGFloat carouselViewOffsetY = -offsetY;
             self.carouselViewTop.constant = carouselViewOffsetY;
         } else {
-            if (offsetY <= 0 && offsetY >= -kRefreshOffsetY * 2) {
+            self.carouselViewHeight.constant = 220 - offsetY;
+            if (offsetY <= -kRefreshOffsetY * 1.5) {
+                self.tableView.contentOffset = CGPointMake(0, -kRefreshOffsetY * 1.5);
+            }
+            else if (offsetY <= 0 && offsetY >= -kRefreshOffsetY * 1.5) {
                 if (self.isRefreshing) {
                     [self.refreshView updateProgress:0];
                 } else {

@@ -47,16 +47,28 @@
     self.pageControl.numberOfPages = topStories.count;
     self.pageControl.currentPage = 0;
     
+    UIView *lastBannerView = nil;
     for (int i=0; i < arr.count; i++) {
         WSDTopStory *topStory = arr[i];
         
-        WSDBannerView *bannerView = [[WSDBannerView alloc]initWithFrame:self.bounds];
+        WSDBannerView *bannerView = [WSDBannerView new];
+        [self.scrollView addSubview:bannerView];
         
         [bannerView.bannerImageView sd_setImageWithURL:[NSURL URLWithString:topStory.imageURLString]];
         bannerView.bannerLabel.text = topStory.title;
+        [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(self.scrollView.mas_height);
+            make.width.mas_equalTo(kScreenWidth);
+            make.top.equalTo(self.scrollView.mas_top);
+            if (lastBannerView) {
+                make.left.equalTo(lastBannerView.mas_right);
+            } else {
+                make.left.equalTo(self.scrollView.mas_left);
+            }
+        }];
         
-        bannerView.frame = CGRectMake(i*kScreenWidth, 0, kScreenWidth, self.view.bounds.size.height);
-        [self.scrollView addSubview:bannerView];
+        lastBannerView = bannerView;
+//        bannerView.frame = CGRectMake(i*kScreenWidth, 0, kScreenWidth, self.view.bounds.size.height);
     }
 }
 
