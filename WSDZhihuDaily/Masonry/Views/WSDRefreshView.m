@@ -22,7 +22,6 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
-        LxDBAnyVar(self.frame);
         [self customInit];
     }
     return self;

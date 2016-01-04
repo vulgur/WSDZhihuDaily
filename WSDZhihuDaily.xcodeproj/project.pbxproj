@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D24E156C1C38E48000E6953E /* WSDSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24E156A1C38E48000E6953E /* WSDSideMenuViewController.m */; };
+		D24E156D1C38E48000E6953E /* WSDSideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24E156B1C38E48000E6953E /* WSDSideMenuViewController.xib */; };
 		D252F3071C2C4BA5009F8535 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D252F3051C2C4BA5009F8535 /* Main.storyboard */; };
 		D252F3091C2C4BA5009F8535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D252F3081C2C4BA5009F8535 /* Assets.xcassets */; };
 		D252F30C1C2C4BA5009F8535 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D252F30A1C2C4BA5009F8535 /* LaunchScreen.storyboard */; };
@@ -40,6 +42,8 @@
 		D252F3741C2D4ACB009F8535 /* WSDStoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D252F3721C2D4ACB009F8535 /* WSDStoryCell.xib */; };
 		D270584C1C2EA35800FF804E /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D270584B1C2EA35800FF804E /* ViewUtils.m */; };
 		D270584F1C301F9200FF804E /* WSDRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = D270584E1C301F9200FF804E /* WSDRefreshView.m */; };
+		D29E03351C396DAC00523CAD /* WSDSideMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D29E03331C396DAC00523CAD /* WSDSideMenuCell.m */; };
+		D29E03361C396DAC00523CAD /* WSDSideMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D29E03341C396DAC00523CAD /* WSDSideMenuCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +62,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D24E15691C38E48000E6953E /* WSDSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSDSideMenuViewController.h; sourceTree = "<group>"; };
+		D24E156A1C38E48000E6953E /* WSDSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSDSideMenuViewController.m; sourceTree = "<group>"; };
+		D24E156B1C38E48000E6953E /* WSDSideMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSDSideMenuViewController.xib; sourceTree = "<group>"; };
 		D252F2F91C2C4BA5009F8535 /* WSDZhihuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSDZhihuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D252F3061C2C4BA5009F8535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D252F3081C2C4BA5009F8535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +123,9 @@
 		D270584B1C2EA35800FF804E /* ViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtils.m; sourceTree = "<group>"; };
 		D270584D1C301F9200FF804E /* WSDRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSDRefreshView.h; sourceTree = "<group>"; };
 		D270584E1C301F9200FF804E /* WSDRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSDRefreshView.m; sourceTree = "<group>"; };
+		D29E03321C396DAC00523CAD /* WSDSideMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSDSideMenuCell.h; sourceTree = "<group>"; };
+		D29E03331C396DAC00523CAD /* WSDSideMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSDSideMenuCell.m; sourceTree = "<group>"; };
+		D29E03341C396DAC00523CAD /* WSDSideMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSDSideMenuCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +215,9 @@
 			children = (
 				D252F3551C2CECB4009F8535 /* HomeViewController.h */,
 				D252F3561C2CECB4009F8535 /* HomeViewController.m */,
+				D24E15691C38E48000E6953E /* WSDSideMenuViewController.h */,
+				D24E156A1C38E48000E6953E /* WSDSideMenuViewController.m */,
+				D24E156B1C38E48000E6953E /* WSDSideMenuViewController.xib */,
 			);
 			name = Controllers;
 			path = Masonry/Controllers;
@@ -250,6 +263,9 @@
 				D252F3721C2D4ACB009F8535 /* WSDStoryCell.xib */,
 				D270584D1C301F9200FF804E /* WSDRefreshView.h */,
 				D270584E1C301F9200FF804E /* WSDRefreshView.m */,
+				D29E03321C396DAC00523CAD /* WSDSideMenuCell.h */,
+				D29E03331C396DAC00523CAD /* WSDSideMenuCell.m */,
+				D29E03341C396DAC00523CAD /* WSDSideMenuCell.xib */,
 			);
 			name = Views;
 			path = Masonry/Views;
@@ -322,9 +338,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D24E156D1C38E48000E6953E /* WSDSideMenuViewController.xib in Resources */,
 				D252F3741C2D4ACB009F8535 /* WSDStoryCell.xib in Resources */,
 				D252F3391C2CE2B4009F8535 /* Info.plist in Resources */,
 				D252F3641C2D146C009F8535 /* WSDCarouselView.xib in Resources */,
+				D29E03361C396DAC00523CAD /* WSDSideMenuCell.xib in Resources */,
 				D252F30C1C2C4BA5009F8535 /* LaunchScreen.storyboard in Resources */,
 				D252F3091C2C4BA5009F8535 /* Assets.xcassets in Resources */,
 				D252F36F1C2D1D47009F8535 /* WSDBannerView.xib in Resources */,
@@ -344,12 +362,14 @@
 				D252F3411C2CE2B4009F8535 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				D252F33F1C2CE2B4009F8535 /* MASViewConstraint.m in Sources */,
 				D252F33A1C2CE2B4009F8535 /* MASCompositeConstraint.m in Sources */,
+				D29E03351C396DAC00523CAD /* WSDSideMenuCell.m in Sources */,
 				D252F36A1C2D1BD5009F8535 /* WSDStory.m in Sources */,
 				D252F3571C2CECB4009F8535 /* HomeViewController.m in Sources */,
 				D270584C1C2EA35800FF804E /* ViewUtils.m in Sources */,
 				D252F3401C2CE2B4009F8535 /* NSArray+MASAdditions.m in Sources */,
 				D252F33D1C2CE2B4009F8535 /* MASLayoutConstraint.m in Sources */,
 				D252F3431C2CE2B4009F8535 /* ViewController+MASAdditions.m in Sources */,
+				D24E156C1C38E48000E6953E /* WSDSideMenuViewController.m in Sources */,
 				D252F36D1C2D1C37009F8535 /* WSDTopStory.m in Sources */,
 				D252F3421C2CE2B4009F8535 /* View+MASAdditions.m in Sources */,
 				D252F3671C2D17C1009F8535 /* WSDBannerView.m in Sources */,

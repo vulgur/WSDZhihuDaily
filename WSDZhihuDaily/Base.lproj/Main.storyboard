@@ -46,12 +46,21 @@
                                     <constraint firstAttribute="height" constant="20" id="bn8-wC-YDG"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxk-zf-D2i">
+                                <rect key="frame" x="25" y="30" width="19" height="22"/>
+                                <state key="normal" image="side_menu"/>
+                                <connections>
+                                    <action selector="showSideMenu:" destination="JyL-mG-oUl" eventType="touchUpInside" id="GeN-AT-K40"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="bpZ-6X-lcu" firstAttribute="leading" secondItem="qo3-cH-VT2" secondAttribute="leading" id="5JM-x6-Vtm"/>
                             <constraint firstAttribute="trailing" secondItem="JCa-zS-Qhe" secondAttribute="trailing" id="DD6-30-t2U"/>
                             <constraint firstItem="NZa-vH-Qdx" firstAttribute="top" secondItem="dqg-uw-jpX" secondAttribute="bottom" constant="10" id="Zax-9R-aUJ"/>
+                            <constraint firstItem="Cxk-zf-D2i" firstAttribute="top" secondItem="dqg-uw-jpX" secondAttribute="bottom" constant="10" id="bXN-hb-OqK"/>
                             <constraint firstAttribute="trailing" secondItem="bpZ-6X-lcu" secondAttribute="trailing" id="cgV-99-yre"/>
+                            <constraint firstItem="Cxk-zf-D2i" firstAttribute="leading" secondItem="qo3-cH-VT2" secondAttribute="leading" constant="25" id="hSZ-rn-f27"/>
                             <constraint firstItem="bpZ-6X-lcu" firstAttribute="top" secondItem="qo3-cH-VT2" secondAttribute="top" id="hh1-xU-UhL"/>
                             <constraint firstItem="JCa-zS-Qhe" firstAttribute="leading" secondItem="qo3-cH-VT2" secondAttribute="leading" id="rZb-Uq-VeZ"/>
                             <constraint firstItem="JCa-zS-Qhe" firstAttribute="top" secondItem="dqg-uw-jpX" secondAttribute="bottom" id="u0k-Ko-n6n"/>
@@ -65,6 +74,7 @@
                         <outlet property="carouselViewHeight" destination="mEa-rQ-A6j" id="LHv-t4-8bJ"/>
                         <outlet property="carouselViewTop" destination="hh1-xU-UhL" id="OCP-HI-8tr"/>
                         <outlet property="refreshView" destination="NZa-vH-Qdx" id="j4P-Hg-Ue5"/>
+                        <outlet property="showSideMenuButton" destination="Cxk-zf-D2i" id="9qR-wE-4F5"/>
                         <outlet property="tableView" destination="JCa-zS-Qhe" id="F6T-PR-t18"/>
                     </connections>
                 </viewController>
@@ -109,4 +119,7 @@
             <point key="canvasLocation" x="429" y="97"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="side_menu" width="19" height="19"/>
+    </resources>
 </document>
