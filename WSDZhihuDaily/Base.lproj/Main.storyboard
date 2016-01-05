@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Home View Controller-->
@@ -18,61 +17,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="200" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JCa-zS-Qhe">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTT-bn-iVz">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="200" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JCa-zS-Qhe">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <view key="tableHeaderView" contentMode="scaleToFill" id="Zs2-MP-GZb">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="dataSource" destination="JyL-mG-oUl" id="yh1-mp-VzF"/>
+                                            <outlet property="delegate" destination="JyL-mG-oUl" id="BWJ-rA-40t"/>
+                                        </connections>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpZ-6X-lcu" customClass="WSDCarouselView">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
+                                        <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="220" id="mEa-rQ-A6j"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZa-vH-Qdx" customClass="WSDRefreshView">
+                                        <rect key="frame" x="119" y="30" width="20" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="Bzw-Pv-cmz"/>
+                                            <constraint firstAttribute="height" constant="20" id="bn8-wC-YDG"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxk-zf-D2i">
+                                        <rect key="frame" x="20" y="30" width="19" height="22"/>
+                                        <state key="normal" image="side_menu"/>
+                                        <connections>
+                                            <action selector="showSideMenu:" destination="JyL-mG-oUl" eventType="touchUpInside" id="GeN-AT-K40"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="Zs2-MP-GZb">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
-                                <connections>
-                                    <outlet property="dataSource" destination="JyL-mG-oUl" id="yh1-mp-VzF"/>
-                                    <outlet property="delegate" destination="JyL-mG-oUl" id="BWJ-rA-40t"/>
-                                </connections>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpZ-6X-lcu" customClass="WSDCarouselView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
-                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="220" id="mEa-rQ-A6j"/>
+                                    <constraint firstAttribute="trailing" secondItem="bpZ-6X-lcu" secondAttribute="trailing" id="1dI-Lz-WoH"/>
+                                    <constraint firstItem="Cxk-zf-D2i" firstAttribute="top" secondItem="NTT-bn-iVz" secondAttribute="top" constant="30" id="5HJ-Z7-tPc"/>
+                                    <constraint firstItem="Cxk-zf-D2i" firstAttribute="leading" secondItem="NTT-bn-iVz" secondAttribute="leading" constant="20" id="5fS-VI-2hc"/>
+                                    <constraint firstItem="bpZ-6X-lcu" firstAttribute="top" secondItem="NTT-bn-iVz" secondAttribute="top" id="ESz-eM-jlJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="JCa-zS-Qhe" secondAttribute="trailing" id="Lk2-J2-eid"/>
+                                    <constraint firstItem="NZa-vH-Qdx" firstAttribute="leading" secondItem="Cxk-zf-D2i" secondAttribute="trailing" constant="80" id="NAJ-Ze-0Um"/>
+                                    <constraint firstAttribute="bottom" secondItem="JCa-zS-Qhe" secondAttribute="bottom" id="QQW-iK-heX"/>
+                                    <constraint firstItem="JCa-zS-Qhe" firstAttribute="leading" secondItem="NTT-bn-iVz" secondAttribute="leading" id="Tdd-9e-0xA"/>
+                                    <constraint firstItem="JCa-zS-Qhe" firstAttribute="top" secondItem="NTT-bn-iVz" secondAttribute="top" id="XMd-sx-qzf"/>
+                                    <constraint firstItem="bpZ-6X-lcu" firstAttribute="leading" secondItem="NTT-bn-iVz" secondAttribute="leading" id="jxY-0e-RrS"/>
+                                    <constraint firstItem="NZa-vH-Qdx" firstAttribute="top" secondItem="Cxk-zf-D2i" secondAttribute="top" id="pMm-uO-muX"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZa-vH-Qdx" customClass="WSDRefreshView">
-                                <rect key="frame" x="120" y="30" width="20" height="20"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="Bzw-Pv-cmz"/>
-                                    <constraint firstAttribute="height" constant="20" id="bn8-wC-YDG"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cxk-zf-D2i">
-                                <rect key="frame" x="25" y="30" width="19" height="22"/>
-                                <state key="normal" image="side_menu"/>
-                                <connections>
-                                    <action selector="showSideMenu:" destination="JyL-mG-oUl" eventType="touchUpInside" id="GeN-AT-K40"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="bpZ-6X-lcu" firstAttribute="leading" secondItem="qo3-cH-VT2" secondAttribute="leading" id="5JM-x6-Vtm"/>
-                            <constraint firstAttribute="trailing" secondItem="JCa-zS-Qhe" secondAttribute="trailing" id="DD6-30-t2U"/>
-                            <constraint firstItem="NZa-vH-Qdx" firstAttribute="top" secondItem="dqg-uw-jpX" secondAttribute="bottom" constant="10" id="Zax-9R-aUJ"/>
-                            <constraint firstItem="Cxk-zf-D2i" firstAttribute="top" secondItem="dqg-uw-jpX" secondAttribute="bottom" constant="10" id="bXN-hb-OqK"/>
-                            <constraint firstAttribute="trailing" secondItem="bpZ-6X-lcu" secondAttribute="trailing" id="cgV-99-yre"/>
-                            <constraint firstItem="Cxk-zf-D2i" firstAttribute="leading" secondItem="qo3-cH-VT2" secondAttribute="leading" constant="25" id="hSZ-rn-f27"/>
-                            <constraint firstItem="bpZ-6X-lcu" firstAttribute="top" secondItem="qo3-cH-VT2" secondAttribute="top" id="hh1-xU-UhL"/>
-                            <constraint firstItem="JCa-zS-Qhe" firstAttribute="leading" secondItem="qo3-cH-VT2" secondAttribute="leading" id="rZb-Uq-VeZ"/>
-                            <constraint firstItem="JCa-zS-Qhe" firstAttribute="top" secondItem="dqg-uw-jpX" secondAttribute="bottom" id="u0k-Ko-n6n"/>
-                            <constraint firstItem="w3b-h3-UXa" firstAttribute="top" secondItem="JCa-zS-Qhe" secondAttribute="bottom" id="wOf-a6-g9F"/>
-                            <constraint firstItem="NZa-vH-Qdx" firstAttribute="leading" secondItem="qo3-cH-VT2" secondAttribute="leadingMargin" constant="100" id="zVz-Ht-9WX"/>
+                            <constraint firstAttribute="bottom" secondItem="NTT-bn-iVz" secondAttribute="bottom" id="0Q0-CP-1Yb"/>
+                            <constraint firstItem="NTT-bn-iVz" firstAttribute="leading" secondItem="qo3-cH-VT2" secondAttribute="leading" id="ILq-NL-Go2"/>
+                            <constraint firstItem="NTT-bn-iVz" firstAttribute="top" secondItem="qo3-cH-VT2" secondAttribute="top" id="b0M-WR-8Ik"/>
+                            <constraint firstAttribute="trailing" secondItem="NTT-bn-iVz" secondAttribute="trailing" id="vKq-Cf-8cj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LFB-HZ-edN"/>
                     <connections>
                         <outlet property="carouselView" destination="bpZ-6X-lcu" id="sXD-Zl-VZH"/>
                         <outlet property="carouselViewHeight" destination="mEa-rQ-A6j" id="LHv-t4-8bJ"/>
-                        <outlet property="carouselViewTop" destination="hh1-xU-UhL" id="OCP-HI-8tr"/>
+                        <outlet property="homeView" destination="NTT-bn-iVz" id="d31-1k-6XT"/>
                         <outlet property="refreshView" destination="NZa-vH-Qdx" id="j4P-Hg-Ue5"/>
                         <outlet property="showSideMenuButton" destination="Cxk-zf-D2i" id="9qR-wE-4F5"/>
                         <outlet property="tableView" destination="JCa-zS-Qhe" id="F6T-PR-t18"/>
@@ -81,24 +92,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOG-B1-lAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1240.5" y="96.75"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="5Jl-5r-Pgf">
-            <objects>
-                <viewController id="DE1-YY-JQi" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VBI-jD-dE4"/>
-                        <viewControllerLayoutGuide type="bottom" id="Yn1-gz-vfD"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oYi-sA-72I">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wga-ay-rsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2029.5" y="96.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fcZ-iB-IyI">

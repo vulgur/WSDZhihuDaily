@@ -20,10 +20,11 @@
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *carouselViewTop;
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *carouselViewHeight;
 @property (weak, nonatomic) IBOutlet UIButton *showSideMenuButton;
+@property (weak, nonatomic) IBOutlet UIView *homeView;
+
 
 @property(nonatomic, strong) NSMutableArray *stories;
 @property(nonatomic, strong) UIView *topView;
-@property(nonatomic, strong) UIView *sideMenuView;
 @property(nonatomic, assign) BOOL isRefreshing;
 @property(nonatomic, assign) BOOL isShowSideMenu;
 @property(nonatomic, strong) WSDSideMenuViewController *sideMenuVC;
@@ -45,15 +46,18 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
                        initWithNibName:@"WSDSideMenuViewController"
                        bundle:nil];
     [self.view addSubview:self.sideMenuVC.view];
-    self.sideMenuView = self.sideMenuVC.view;
     [self addChildViewController:self.sideMenuVC];
     [self.sideMenuVC didMoveToParentViewController:self];
-    [self.sideMenuVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.view.mas_left);
-        make.top.equalTo(self.view.mas_top);
-        make.height.equalTo(self.view.mas_height);
-        make.width.equalTo(@225);
-    }];
+    self.sideMenuVC.view.right = 0;
+    self.sideMenuVC.view.top = 0;
+    self.sideMenuVC.view.height = kScreenHeight;
+    self.sideMenuVC.view.width = 225;
+//    [self.sideMenuVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(self.view.mas_left);
+//        make.top.equalTo(self.view.mas_top);
+//        make.height.equalTo(self.view.mas_height);
+//        make.width.equalTo(@225);
+//    }];
     self.isShowSideMenu = NO;
     
     // setup story table view
@@ -136,7 +140,7 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
             if (!self.topView) {
                 self.topView =
                 [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
-                [self.view insertSubview:self.topView belowSubview:self.showSideMenuButton];
+                [self.homeView insertSubview:self.topView belowSubview:self.showSideMenuButton];
             }
             CGFloat alpha = offsetY / 64;
             self.topView.backgroundColor = [UIColor colorWithRed:60.f / 255.f
@@ -180,15 +184,15 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
     [self.sideMenuVC.menuTableView reloadData];
     [UIView animateWithDuration:kSideMenuAnimationDuration
                      animations:^{
-                         self.view.left = 225;
+                         self.sideMenuVC.view.left = 0;
+                         self.homeView.left = 225;
                      }
                      completion:^(BOOL finished) {
                          // setup transparent view for tapping to hide the side menu
-                         CGRect frame = CGRectMake(1, 0, kScreenWidth - 225, kScreenHeight);
-                         self.tapView = [[UIView alloc] initWithFrame:frame];
-                         self.tapView.backgroundColor = [UIColor clearColor];
+                         self.tapView = [[UIView alloc] initWithFrame:self.homeView.bounds];
+                         self.tapView.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.2];
                          [self.tapView addGestureRecognizer:self.tapToHideSideMenu];
-                         [self.view insertSubview:self.tapView belowSubview:self.sideMenuView];
+                         [self.homeView addSubview:self.tapView];
                          self.isShowSideMenu = YES;
                      }];
 }
@@ -197,7 +201,8 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
 - (void)hideSideMenu {
     [UIView animateWithDuration:kSideMenuAnimationDuration
                      animations:^{
-                         self.view.left = 0;
+                         self.homeView.left = 0;
+                         self.sideMenuVC.view.left = -255;
                      }
                      completion:^(BOOL finished) {
                          [self.tapView removeGestureRecognizer:self.tapToHideSideMenu];

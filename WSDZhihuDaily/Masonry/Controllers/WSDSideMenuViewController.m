@@ -26,6 +26,10 @@ static NSString *const kCellIdentifier = @"Cell";
     
     [self.menuTableView registerNib:[UINib nibWithNibName:@"WSDSideMenuCell" bundle:nil] forCellReuseIdentifier:kCellIdentifier];
     self.menuTableView.dataSource = self;
+    
+    UIView *backgroundView = [[UIView alloc]initWithFrame:self.menuTableView.bounds];
+    backgroundView.backgroundColor = [UIColor colorWithRed:0.106 green:0.125 blue:0.141 alpha:1];
+    self.menuTableView.backgroundView = backgroundView;
     self.menuItems = @[@"首页",
                        @"日常心理学",
                        @"用户推荐日报",
@@ -40,33 +44,6 @@ static NSString *const kCellIdentifier = @"Cell";
                        @"动漫日报",
                        @"体育日报"];
 }
-
--(void)viewWillAppear:(BOOL)animated {
-    LxPrintAnything(will appear);
-    [super viewWillAppear:animated];
-    LxDBAnyVar(self.menuTableView.contentSize);
-}
-
--(void)viewDidAppear:(BOOL)animated {
-    LxPrintAnything(did appear);
-    [super viewDidAppear:animated];
-    LxDBAnyVar(self.menuTableView.contentSize);
-    
-}
-
-//-(void)viewWillLayoutSubviews {
-//    LxPrintAnything(will layout);
-////    [super viewWillLayoutSubviews];
-//    self.menuTableView.contentSize = CGSizeMake(self.view.width, kScreenHeight-20-55-50-50);
-//    LxDBAnyVar(self.menuTableView.contentSize);
-//}
-//
-//-(void)viewDidLayoutSubviews {
-////    [super viewDidLayoutSubviews];
-//    LxPrintAnything(did layout);
-//    self.menuTableView.contentSize = CGSizeMake(self.view.width, kScreenHeight-20-55-50-50);
-//    LxDBAnyVar(self.menuTableView.contentSize);
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
