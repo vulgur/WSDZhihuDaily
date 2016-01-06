@@ -17,7 +17,7 @@
 @property(weak, nonatomic) IBOutlet WSDCarouselView *carouselView;
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 @property(weak, nonatomic) IBOutlet WSDRefreshView *refreshView;
-//@property(weak, nonatomic) IBOutlet NSLayoutConstraint *carouselViewTop;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *carouselViewTop;
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *carouselViewHeight;
 @property (weak, nonatomic) IBOutlet UIButton *showSideMenuButton;
 @property (weak, nonatomic) IBOutlet UIView *homeView;
@@ -147,6 +147,7 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
                                                            green:198.f / 255.f
                                                             blue:253.f / 255.f
                                                            alpha:alpha];
+            self.carouselViewTop.constant = -offsetY;
             
         } else {
             self.carouselViewHeight.constant = 220 - offsetY;

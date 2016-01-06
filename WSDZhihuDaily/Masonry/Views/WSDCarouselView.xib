@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WSDCarouselView">
@@ -24,12 +23,6 @@
                         <outlet property="delegate" destination="-1" id="7P4-7I-zP1"/>
                     </connections>
                 </scrollView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日新闻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHI-ex-DKc">
-                    <rect key="frame" x="260" y="28" width="80" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="i2d-D2-qSQ">
                     <rect key="frame" x="281" y="183" width="39" height="37"/>
                 </pageControl>
@@ -39,11 +32,9 @@
                 <constraint firstAttribute="bottom" secondItem="i2d-D2-qSQ" secondAttribute="bottom" id="5JQ-E7-AYq"/>
                 <constraint firstItem="6pc-Eo-6VG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Csg-bO-kzC"/>
                 <constraint firstItem="6pc-Eo-6VG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="G1e-xr-G7J"/>
-                <constraint firstItem="jHI-ex-DKc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="20" id="J70-ph-6jh"/>
                 <constraint firstAttribute="bottom" secondItem="6pc-Eo-6VG" secondAttribute="bottom" id="KLQ-B6-B2k"/>
                 <constraint firstAttribute="trailing" secondItem="6pc-Eo-6VG" secondAttribute="trailing" id="L1o-gd-dpN"/>
                 <constraint firstItem="i2d-D2-qSQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="NLu-FL-nF1"/>
-                <constraint firstItem="jHI-ex-DKc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lhq-Sq-uHf"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

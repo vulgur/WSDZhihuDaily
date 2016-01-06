@@ -55,6 +55,12 @@
                                             <action selector="showSideMenu:" destination="JyL-mG-oUl" eventType="touchUpInside" id="GeN-AT-K40"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日新闻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3k-u9-Mfv">
+                                        <rect key="frame" x="266" y="30" width="68" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -65,8 +71,10 @@
                                     <constraint firstAttribute="trailing" secondItem="JCa-zS-Qhe" secondAttribute="trailing" id="Lk2-J2-eid"/>
                                     <constraint firstItem="NZa-vH-Qdx" firstAttribute="leading" secondItem="Cxk-zf-D2i" secondAttribute="trailing" constant="80" id="NAJ-Ze-0Um"/>
                                     <constraint firstAttribute="bottom" secondItem="JCa-zS-Qhe" secondAttribute="bottom" id="QQW-iK-heX"/>
+                                    <constraint firstItem="g3k-u9-Mfv" firstAttribute="top" secondItem="Cxk-zf-D2i" secondAttribute="top" id="SHb-28-yb8"/>
                                     <constraint firstItem="JCa-zS-Qhe" firstAttribute="leading" secondItem="NTT-bn-iVz" secondAttribute="leading" id="Tdd-9e-0xA"/>
                                     <constraint firstItem="JCa-zS-Qhe" firstAttribute="top" secondItem="NTT-bn-iVz" secondAttribute="top" id="XMd-sx-qzf"/>
+                                    <constraint firstItem="g3k-u9-Mfv" firstAttribute="centerX" secondItem="NTT-bn-iVz" secondAttribute="centerX" id="d3P-gN-j2J"/>
                                     <constraint firstItem="bpZ-6X-lcu" firstAttribute="leading" secondItem="NTT-bn-iVz" secondAttribute="leading" id="jxY-0e-RrS"/>
                                     <constraint firstItem="NZa-vH-Qdx" firstAttribute="top" secondItem="Cxk-zf-D2i" secondAttribute="top" id="pMm-uO-muX"/>
                                 </constraints>
@@ -83,6 +91,7 @@
                     <connections>
                         <outlet property="carouselView" destination="bpZ-6X-lcu" id="sXD-Zl-VZH"/>
                         <outlet property="carouselViewHeight" destination="mEa-rQ-A6j" id="LHv-t4-8bJ"/>
+                        <outlet property="carouselViewTop" destination="ESz-eM-jlJ" id="l81-VS-tR3"/>
                         <outlet property="homeView" destination="NTT-bn-iVz" id="d31-1k-6XT"/>
                         <outlet property="homeViewLeft" destination="ILq-NL-Go2" id="YDz-Ye-0rR"/>
                         <outlet property="homeViewRight" destination="vKq-Cf-8cj" id="ClI-hF-F4L"/>
@@ -93,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOG-B1-lAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1240.5" y="96.75"/>
+            <point key="canvasLocation" x="1241" y="97"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fcZ-iB-IyI">
