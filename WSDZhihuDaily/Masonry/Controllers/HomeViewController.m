@@ -17,7 +17,7 @@
 @property(weak, nonatomic) IBOutlet WSDCarouselView *carouselView;
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 @property(weak, nonatomic) IBOutlet WSDRefreshView *refreshView;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint *carouselViewTop;
+//@property(weak, nonatomic) IBOutlet NSLayoutConstraint *carouselViewTop;
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *carouselViewHeight;
 @property (weak, nonatomic) IBOutlet UIButton *showSideMenuButton;
 @property (weak, nonatomic) IBOutlet UIView *homeView;
@@ -31,12 +31,14 @@
 @property(nonatomic, assign) BOOL isShowSideMenu;
 @property(nonatomic, strong) WSDSideMenuViewController *sideMenuVC;
 @property(nonatomic, strong) UITapGestureRecognizer *tapToHideSideMenu;
+@property(nonatomic, strong) UIPanGestureRecognizer *pan;
 @property(nonatomic, strong) UIView *tapView;
 
 @end
 
 @implementation HomeViewController
 
+static CGFloat const kSideMenuWidth = 225.f;
 static CGFloat const kRefreshOffsetY = 40.f;
 static CGFloat const kSideMenuAnimationDuration = 0.2f;
 
@@ -54,12 +56,6 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
     self.sideMenuVC.view.top = 0;
     self.sideMenuVC.view.height = kScreenHeight;
     self.sideMenuVC.view.width = 225;
-//    [self.sideMenuVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(self.view.mas_left);
-//        make.top.equalTo(self.view.mas_top);
-//        make.height.equalTo(self.view.mas_height);
-//        make.width.equalTo(@225);
-//    }];
     self.isShowSideMenu = NO;
     
     // setup story table view
@@ -67,10 +63,12 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
     [self.tableView registerNib:[UINib nibWithNibName:@"WSDStoryCell" bundle:nil]
          forCellReuseIdentifier:@"StoryCell"];
     
-    // init the tap gesture for hiding the side menu
+    // init the gestures for hiding the side menu
     self.tapToHideSideMenu = [[UITapGestureRecognizer alloc]
                               initWithTarget:self
                               action:@selector(hideSideMenu)];
+    self.pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePanGesture:)];
+    [self.homeView addGestureRecognizer:self.pan];
     
     // fetch the daily stories
     NSURLSessionConfiguration *config =
@@ -150,8 +148,6 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
                                                             blue:253.f / 255.f
                                                            alpha:alpha];
             
-            CGFloat carouselViewOffsetY = -offsetY;
-            self.carouselViewTop.constant = carouselViewOffsetY;
         } else {
             self.carouselViewHeight.constant = 220 - offsetY;
             if (offsetY <= -kRefreshOffsetY * 1.5) {
@@ -185,12 +181,11 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
 - (IBAction)showSideMenu:(UIButton *)sender {
     [self.sideMenuVC.menuTableView reloadData];
     self.homeViewLeft.constant = 225;
-    self.homeViewRight.constant -= 225;
+    self.homeViewRight.constant = -225;
     [self.homeView setNeedsUpdateConstraints];
     [UIView animateWithDuration:kSideMenuAnimationDuration
                      animations:^{
                          self.sideMenuVC.view.left = 0;
-//                         self.homeView.left = 225;
                          [self.view layoutIfNeeded];
                      }
                      completion:^(BOOL finished) {
@@ -215,6 +210,24 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
                          [self.tapView removeFromSuperview];
                          self.isShowSideMenu = NO;
                      }];
+}
+
+-(void)handlePanGesture:(UIPanGestureRecognizer *)recognizer {
+    CGFloat offsetX = [recognizer translationInView:self.homeView].x;
+    if (offsetX > 0 && offsetX < kSideMenuWidth) {
+        self.sideMenuVC.view.right = offsetX;
+        self.homeViewLeft.constant = offsetX;
+        self.homeViewRight.constant = -offsetX;
+        [self.homeView layoutIfNeeded];
+    }
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+
+        if (offsetX >= kSideMenuWidth/2) {
+            [self showSideMenu:nil];
+        } else {
+            [self hideSideMenu];
+        }
+    }
 }
 
 @end
