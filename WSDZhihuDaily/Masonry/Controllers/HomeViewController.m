@@ -21,6 +21,8 @@
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *carouselViewHeight;
 @property (weak, nonatomic) IBOutlet UIButton *showSideMenuButton;
 @property (weak, nonatomic) IBOutlet UIView *homeView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *homeViewLeft;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *homeViewRight;
 
 
 @property(nonatomic, strong) NSMutableArray *stories;
@@ -182,15 +184,19 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
 
 - (IBAction)showSideMenu:(UIButton *)sender {
     [self.sideMenuVC.menuTableView reloadData];
+    self.homeViewLeft.constant = 225;
+    self.homeViewRight.constant -= 225;
+    [self.homeView setNeedsUpdateConstraints];
     [UIView animateWithDuration:kSideMenuAnimationDuration
                      animations:^{
                          self.sideMenuVC.view.left = 0;
-                         self.homeView.left = 225;
+//                         self.homeView.left = 225;
+                         [self.view layoutIfNeeded];
                      }
                      completion:^(BOOL finished) {
                          // setup transparent view for tapping to hide the side menu
                          self.tapView = [[UIView alloc] initWithFrame:self.homeView.bounds];
-                         self.tapView.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.2];
+                         self.tapView.backgroundColor = [UIColor clearColor];
                          [self.tapView addGestureRecognizer:self.tapToHideSideMenu];
                          [self.homeView addSubview:self.tapView];
                          self.isShowSideMenu = YES;

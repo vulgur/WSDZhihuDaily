@@ -84,6 +84,8 @@
                         <outlet property="carouselView" destination="bpZ-6X-lcu" id="sXD-Zl-VZH"/>
                         <outlet property="carouselViewHeight" destination="mEa-rQ-A6j" id="LHv-t4-8bJ"/>
                         <outlet property="homeView" destination="NTT-bn-iVz" id="d31-1k-6XT"/>
+                        <outlet property="homeViewLeft" destination="ILq-NL-Go2" id="YDz-Ye-0rR"/>
+                        <outlet property="homeViewRight" destination="vKq-Cf-8cj" id="ClI-hF-F4L"/>
                         <outlet property="refreshView" destination="NZa-vH-Qdx" id="j4P-Hg-Ue5"/>
                         <outlet property="showSideMenuButton" destination="Cxk-zf-D2i" id="9qR-wE-4F5"/>
                         <outlet property="tableView" destination="JCa-zS-Qhe" id="F6T-PR-t18"/>
