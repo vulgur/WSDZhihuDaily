@@ -19,6 +19,15 @@
         view.frame = self.bounds;
         [self addSubview:view];
         self.bannerImageView.contentMode = UIViewContentModeScaleAspectFill;
+        
+        CAGradientLayer *bottomGradientLayer = [CAGradientLayer layer];
+        bottomGradientLayer.frame = self.bannerImageView.bounds;
+        bottomGradientLayer.colors = @[(id)[UIColor colorWithWhite:0.2 alpha:0.6].CGColor,
+                                       (id)[UIColor clearColor].CGColor,
+                                       (id)[UIColor clearColor].CGColor,
+                                       (id)[UIColor colorWithWhite:0.2 alpha:0.6].CGColor];
+        bottomGradientLayer.locations = @[@0.0, @0.4, @0.7, @1.0];
+        [self.bannerImageView.layer addSublayer:bottomGradientLayer];
     }
     return self;
 }
