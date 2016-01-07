@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ldb-b0-xDs">
@@ -42,7 +42,7 @@
                 <outlet property="label" destination="qdd-HT-ITf" id="rVb-vt-r8j"/>
                 <outlet property="righImageView" destination="Ldb-b0-xDs" id="sXe-It-qau"/>
             </connections>
-            <point key="canvasLocation" x="-62" y="214"/>
+            <point key="canvasLocation" x="-235" y="223"/>
         </tableViewCell>
     </objects>
 </document>

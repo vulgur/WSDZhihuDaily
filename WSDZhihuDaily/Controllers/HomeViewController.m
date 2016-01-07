@@ -138,8 +138,7 @@ static CGFloat const kSideMenuAnimationDuration = 0.2f;
         CGFloat offsetY = scrollView.contentOffset.y;
         if (offsetY > 0) {
             if (!self.topView) {
-                self.topView =
-                [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
+                self.topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
                 [self.homeView insertSubview:self.topView belowSubview:self.showSideMenuButton];
             }
             CGFloat alpha = offsetY / 64;
