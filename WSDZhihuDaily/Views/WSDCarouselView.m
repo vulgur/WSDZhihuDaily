@@ -68,7 +68,6 @@
         }];
         
         lastBannerView = bannerView;
-//        bannerView.frame = CGRectMake(i*kScreenWidth, 0, kScreenWidth, self.view.bounds.size.height);
     }
 }
 
