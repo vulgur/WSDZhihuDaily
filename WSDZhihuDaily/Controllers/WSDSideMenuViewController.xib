@@ -97,7 +97,7 @@
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AWZ-SN-lZ6">
                     <rect key="frame" x="0.0" y="125" width="225" height="425"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.14117647058823529" green="0.16862745098039217" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Unc-li-ZdR">
                     <rect key="frame" x="0.0" y="550" width="225" height="50"/>
@@ -146,7 +146,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="189.5" y="342"/>
+            <point key="canvasLocation" x="-185.5" y="319"/>
         </view>
     </objects>
     <resources>

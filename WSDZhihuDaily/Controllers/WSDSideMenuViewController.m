@@ -31,12 +31,6 @@ static NSString *const kCellIdentifier = @"Cell";
     self.menuTableView.dataSource = self;
     self.menuTableView.delegate = self;
     
-    UIColor *backgroundColor = [UIColor colorWithRed:0.106 green:0.125 blue:0.141 alpha:1];
-    self.menuTableView.backgroundColor = backgroundColor;
-//    UIView *backgroundView = [[UIView alloc] initWithFrame:self.menuTableView.bounds];
-//    backgroundView.backgroundColor = backgroundColor;
-//    self.menuTableView.backgroundView = backgroundView;
-    
     self.menuItems = @[
                        @"首页",
                        @"日常心理学",
@@ -82,13 +76,8 @@ static NSString *const kCellIdentifier = @"Cell";
 #pragma mark - UITableViewDelegate
 
 #pragma mark - UIScrollViewDelegate
-//
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    for (CALayer *layer in [self.menuTableView.layer.sublayers copy]) {
-        if ([layer isKindOfClass:[CAGradientLayer class]]) {
-            [layer removeFromSuperlayer];
-        }
-    }
     UIColor *backgroundColor = [UIColor colorWithRed:0.106 green:0.125 blue:0.141 alpha:1];
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     gradientLayer.frame = self.menuTableView.bounds;
